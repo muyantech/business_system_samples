@@ -1,0 +1,4 @@
+organization.name,name(*),description,css(F),active,title,squareLogo,favicon,backgroundImage,logo
+;; Line begin with ; will be treat as comments
+;; Use $ROOT_ORG$ to refer to the root organization
+;; File path in css(F), squareLogo, favicon, backgroundImage and logo column is start from data folder

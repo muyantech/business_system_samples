@@ -1,0 +1,3 @@
+organization.name(*),name(*),type,httpMethod,url,active,description,enableLogic.name,coreLogic.name,effectiveDate,expiryDate
+;; Line begin with ; will be treat as comments
+;; Use $ROOT_ORG$ to refer to the root organization

@@ -1,0 +1,4 @@
+dynamicLogicEngine.name,name(*),logicType.name,code(F),description,isSystem,prompt.name
+;; Line begin with ; will be treat as comments
+;; Use $ROOT_ORG$ to refer to the root organization
+;; File path in code(F) folder is start from data folder, so should be start with groovy normally
