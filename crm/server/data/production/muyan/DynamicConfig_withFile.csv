@@ -1,0 +1,4 @@
+name,key(*),value(F),parent.key,description,attachment,modifyRemark,displaySequence,allowPublicAccess,icon,isSystem
+;; Line begin with ; will be treat as comments
+;; Use $ROOT_ORG$ to refer to the root organization
+;; System will read value from the file path in value(F) column, should be subfolder of /data

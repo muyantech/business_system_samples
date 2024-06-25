@@ -1,0 +1,3 @@
+form.name(*),fieldName(*),displaySequence,label,helpText,fieldType,nullable,group.name,extInfo,displayType
+;; Line begin with ; will be treat as comments
+;; Use $ROOT_ORG$ to refer to the root organization

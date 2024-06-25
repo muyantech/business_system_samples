@@ -1,0 +1,3 @@
+name,key(*),value,parent.key,description,attachment,modifyRemark,displaySequence,allowPublicAccess,icon,isSystem
+;; Line begin with ; will be treat as comments
+;; Use $ROOT_ORG$ to refer to the root organization

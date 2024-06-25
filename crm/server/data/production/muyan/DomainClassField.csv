@@ -1,0 +1,3 @@
+domainClass.shortName(*),name(*),dataType,referenceDomain.shortName,nullable,editable,defaultValue,options,extInfo
+;; Line begin with ; will be treat as comments
+;; Use $ROOT_ORG$ to refer to the root organization

@@ -1,0 +1,3 @@
+name(*),label,displaySequence,description,form.name,enableLogic.name,coreLogic.name,type,options
+;; Line begin with ; will be treat as comments
+;; Use $ROOT_ORG$ to refer to the root organization

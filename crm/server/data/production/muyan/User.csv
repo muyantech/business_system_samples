@@ -1,0 +1,4 @@
+username(*),password,organization.name,canAccessSubsidiaryData,name
+;; Line begin with ; will be treat as comments
+;; Use $ROOT_ORG$ to refer to the root organization
+;; Username should be a valid email address

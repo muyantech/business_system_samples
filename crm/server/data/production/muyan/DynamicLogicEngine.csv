@@ -1,0 +1,4 @@
+name(*),description,handlerClassName
+;; Line begin with ; will be treat as comments
+;; Use $ROOT_ORG$ to refer to the root organization
+;; Don't touch this file if you don't know what you are doing

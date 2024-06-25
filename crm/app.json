@@ -1,0 +1,74 @@
+{
+  "name": "Product based on muyan agile development platform",
+  "description": "Product based on muyan agile development platform",
+  "buildpacks": [
+    {
+      "url": "heroku/gradle"
+    },
+    {
+      "url": "heroku/jvm"
+    }
+  ],
+  "addons": [
+    {
+      "plan": "heroku-postgresql:basic"
+    },
+    "heroku-redis:premium-0",
+    "logtail:free"
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "Performance-M"
+    }
+  },
+  "stack": "heroku-22",
+  "env": {  
+      "GRADLE_TASK": "-Dgrails.env=review stage",
+      "GRAILS_ENV": "review",
+      "JAVA_TOOL_OPTIONS": "-XX:CICompilerCount=2 -Dfile.encoding=UTF-8 -Dgorm.tenantId=muyan",
+      "PAAS_VENDOR": "heroku",
+      "SEED_DATA_FOLDER": "/app/server/data"
+  },
+  "environments": {
+    "review": {
+      "formation": {
+        "web": {
+          "quantity": 1,
+          "size": "Performance-M"
+        }
+      },
+      "addons": [
+        {
+          "plan": "heroku-postgresql:basic"
+        },
+        "heroku-redis:premium-0",
+        "logtail:free"
+      ],
+      "env": {
+        "GRADLE_TASK": "-Dgrails.env=review stage",
+        "GRAILS_ENV": "review",
+        "JAVA_TOOL_OPTIONS": "-XX:CICompilerCount=2 -Dfile.encoding=UTF-8 -Dgorm.tenantId=muyan",
+        "PAAS_VENDOR": "heroku",
+        "SEED_DATA_FOLDER": "/app/server/data"
+      }
+    },
+    "test": {
+      "env": {
+        "JAVA_TOOL_OPTIONS": "-XX:CICompilerCount=2 -Dfile.encoding=UTF-8 -Dgorm.tenantId=muyan"
+      },
+      "addons": [
+        "heroku-postgresql:in-dyno"
+      ],
+      "scripts": {
+        "test": "export JDBC_TEST_DATABASE_URL=$JDBC_DATABASE_URL JDBC_TEST_DATABASE_USERNAME=$JDBC_DATABASE_USERNAME JDBC_TEST_DATABASE_PASSWORD=$JDBC_DATABASE_PASSWORD;./gradlew test integrationTest"
+      },
+      "formation": {
+        "test": {
+          "quantity": 1,
+          "size": "performance-l"
+        }
+      }
+    }
+  }
+}

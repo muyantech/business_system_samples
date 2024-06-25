@@ -1,0 +1,48 @@
+
+String workingFolder = "$buildDir/tmp/muyan"
+String targetFolder = "$buildDir/muyan"
+def workingFolderFile = file(workingFolder)
+def targetFolderFile = file(targetFolder)
+if (workingFolderFile.exists()) {
+  delete workingFolderFile
+}
+if (targetFolderFile.exists()) {
+  delete targetFolderFile
+}
+mkdir workingFolder
+mkdir targetFolder
+
+tasks.register('copySeedData') {
+  group = 'Muyan Tasks'
+  dependsOn ":plugin:packageMuyanPlugin"
+  copy {
+    from("${rootDir}/data")
+    into("$workingFolder")
+  }
+  copy {
+    from("${rootDir}/data/review")
+    into("$workingFolder/development")
+  }
+  copy {
+    from("${rootDir}/data/review")
+    into("$workingFolder/staging")
+  }
+  doLast {
+    copy {
+      from("${project(":plugin").buildDir}/muyan-plugin")
+      into("$workingFolder/plugins/")
+    }
+  }
+  outputs.dir("$workingFolder")
+}
+
+tasks.register('packageSeedData', Zip) {
+  group = 'Muyan Tasks'
+  dependsOn "copySeedData"
+  archiveName "data.zip"
+  destinationDir(file(targetFolder))
+  from copySeedData
+  include '*'
+  include '**/**'
+}
+
